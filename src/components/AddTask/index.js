@@ -4,6 +4,7 @@ class AddTask extends React.Component {
   constructor(props) {
     super(props);
 
+    //inicializo
     this.state = {
       inputValue: ""
     };
@@ -11,6 +12,8 @@ class AddTask extends React.Component {
 
   handleChange(e) {
     const { value } = e.target;
+
+    //actualizo
     this.setState({
       inputValue: value
     });
@@ -18,15 +21,17 @@ class AddTask extends React.Component {
 
   handleClick() {
     const { inputValue } = this.state;
-    if (inputValue != "") {
+
+    if (inputValue !== "") {
+      this.props.propDePrueba(inputValue);
     }
   }
 
   render() {
     return (
       <>
-        <input type="text" />
-        <button>Agregar</button>
+        <input type="text" onChange={(e) => this.handleChange(e)} />
+        <button onClick={() => this.handleClick()}>Agregar</button>
       </>
     );
   }
